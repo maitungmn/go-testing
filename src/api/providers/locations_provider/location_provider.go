@@ -24,8 +24,9 @@ type countryServiceInterface interface {
 type countryProvider struct{}
 
 func (p *countryProvider) GetCountry(countryId string) (*locations.Country, *errors.ApiError) {
+	fmt.Println("inside provider")
 	url := fmt.Sprintf(urlGetCountry, countryId)
-	response, err := restclient.ClientStruct.Get(url, countryId)
+	response, err := restclient.ClientStruct.Get(url)
 	if err != nil {
 		return nil, &errors.ApiError{
 			Status:  http.StatusInternalServerError,

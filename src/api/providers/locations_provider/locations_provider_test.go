@@ -16,8 +16,8 @@ var (
 
 type getClientMock struct{}
 
-func (cm *getClientMock) Get(request string, _ string) (*http.Response, error) {
-	return getRequestFunc(request)
+func (cm *getClientMock) Get(url string) (*http.Response, error) {
+	return getRequestFunc(url)
 }
 
 func TestGetCountryNotFound(t *testing.T) {
